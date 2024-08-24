@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto 1fr;
+    padding: 10px;
+    column-gap: 10px;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+
+
+}
+
+
+/* Sidebar nav */
+.navBar {
+    display: grid;
+    grid-row: 1 / 4;
+    background-color: rgb(19,18, 18);
+    padding: 20px;
+
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+/* fill="#979696" */
+.title-container img {
+    height: 25px;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navBar ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    row-gap: 10px;
+
+}
+
+.navBar h1 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+}
+.navBar a {
+    text-decoration: none;
+    list-style: none;
+    color: #979696;
+    transition: 0.3s;
+
+}
+
+.navBar a:hover {
+    color: white;
+    cursor: pointer;
+}
+
+/* CONTENT */
+.content {
+    background-color: rgb(19,18, 18);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    padding: 20px;
+    gap: 20px;
+
+}
+.content-container {
+    background-color: rgb(19,18, 18);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+
+}
+.title-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.title-logo img {
+    height: 50px;
+
+}
+
+.card.dashboard img {
+    height: 50px;
+
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: red;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+
+}
+
+.pink {
+    background-color: rgb(202, 49, 137);
+}
+.green {
+    background-color: rgb(41, 98, 81);
+}
+.blue{
+    background-color: rgb(34, 49, 97);
+}
+.purple {
+    background-color: rgb(121, 21, 222);
+}
+.orange {
+    background-color: rgb(199, 76, 33);
+}
+
+/* Search Nav */
+.searchNav {
+    background-color: rgb(19,18, 18);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 10px;
+
+    position: sticky;
+    top: 0;
+
+
+}
+
+input {
+    padding: 15px;
+    background-color: rgb(42, 42, 42);
+    font-size: 1rem;
+    border-radius: 25px;
+    border: 1px solid ;
+
+}
+
+.title-card {
+    padding: 20px;
+
+}
+
+.title-card h2 {
+    font-size: 3rem;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+<body>
+    <%- include('../partials/sidebar.ejs') %>
+    <%- include('../partials/search.ejs') %>
+    <div class="content-container">
+        <div class="title-card green">
+            <h2><%= title %></h2>
+        </div>
+        <form action="/artwork/create" method="POST">
+            <label for="artist">Artist: </label>
+            <select name="artist" id="artist" required>
+                <% artists.map((artist, index) => { %>
+                    <option value="<%= artist.name %>"><%= artist.name %></option>
+                <% }) %>
+
+            </select>
+
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title" required>
+
+            <label for="medium">Medium: </label>
+            <input type="text" name="medium" id="medium" required>
+
+            <label for="location">Location: </label>
+            <input type="text" name="location" id="location" required>
+
+            <label for="year">Year: </label>
+            <input type="number" name="year" id="year" required>
+
+            <label for="Style">Style: </label>
+            <input type="text" name="style" id="style" required>
+
+            <label for="img_url">Image Url: </label>
+            <input type="text" name="img_url" id="img_url" required>
+
+            <button type="submit">Submit</button>
+          </form>
+
+      </div>
+
+</body>
+</html>

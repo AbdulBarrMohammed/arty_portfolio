@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Artist</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+<body>
+  <%- include('../partials/sidebar.ejs') %>
+  <%- include('../partials/search.ejs') %>
+  <div class="content-container">
+    <div class="title-card pink">
+        <h2><%= title %></h2>
+    </div>
+    <form action="/category/artists/update/<%= artist.id %>" method="POST">
+        <input type="text" name="name" value="<%= artist.name %>" required>
+        <input type="date" name="date_of_birth" value="<%= artist.date_of_birth %>" required>
+        <input type="date" name="date_of_death" value="<%= artist.date_of_death %>">
+        <input type="text" name="img_url" value="<%= artist.img_url %>">
+        <button type="submit">Update Artist</button>
+      </form>
+  </div>
+
+
+</body>
+</html>
