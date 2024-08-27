@@ -5,20 +5,18 @@ async function getAllArtworks() {
   return rows;
 }
 
-async function insertNewArtwork({name, date_of_birth, date_of_death, img_url}) {
-    /*const query = `
-    INSERT INTO artists (name, date_of_birth, date_of_death, img_url)
-    VALUES ($1, $2, $3, $4)`;
+async function insertNewArtwork({artist, medium, title, year, style, location, img_url}) {
+    const query = `
+    INSERT INTO artworks (artist, medium, title, year, style, location, img_url)
+    VALUES ($1, $2, $3, $4, $5, $6, $7)`;
 
-    await pool.query(query, [name, date_of_birth, date_of_death, img_url]); */
+    await pool.query(query, [artist, medium, title, year, style, location, img_url]);
 }
 
 async function getArtwork(id) {
-    /*
-    //console.log("ID passed to getMessage:", id);
-    const result = await pool.query("SELECT * FROM artists WHERE id = $1", [id]);
-    //console.log(result)
-    return result.rows[0] ; */
+
+    const result = await pool.query("SELECT * FROM artworks WHERE id = $1", [id]);
+    return result.rows[0];
 }
 
 async function deleteArtwork(id) {
@@ -32,15 +30,27 @@ async function deleteArtwork(id) {
 
 }
 
-async function updateArtwork(id, {name, date_of_birth, date_of_death, img_url}) {
-    /*
+
+
+async function updateArtwork(id, {artist, medium, title, year, style, location, img_url}) {
+
     const query = `
-    UPDATE artists
-    SET name = $1, date_of_birth = $2, date_of_death = $3, img_url = $4
-    WHERE id = $5;
+    UPDATE artworks
+    SET artist = $1, medium = $2, title = $3, year = $4, style = $5, location = $6, img_url = $7
+    WHERE id = $8;
     `;
 
-    const result = await pool.query(query, [name, date_of_birth, date_of_death, img_url, id]); */
+    const result = await pool.query(query, [artist, medium, title, year, style, location, img_url, id]);
+}
+
+async function deleteArtWorkLocation(location) {
+  const query = `
+    DELETE FROM location
+    WHERE city = $1;
+    `;
+
+    await pool.query(query, [location]);
+
 }
 module.exports = {
   updateArtwork,
@@ -48,5 +58,6 @@ module.exports = {
   getAllArtworks,
   getArtwork,
   insertNewArtwork,
+  deleteArtWorkLocation
 
 };

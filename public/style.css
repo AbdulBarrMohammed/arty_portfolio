@@ -83,6 +83,19 @@ body {
     gap: 20px;
 
 }
+
+.content a {
+    text-decoration: none;
+    list-style: none;
+    transition: 0.3s;
+    color: white;
+    opacity: 1;
+}
+
+.content a:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
 .content-container {
     background-color: rgb(19,18, 18);
     display: flex;
@@ -145,7 +158,31 @@ body {
     position: sticky;
     top: 0;
 
+}
 
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.searchNav button {
+    padding: 15px 30px;
+    border-radius: 50px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.nav-button {
+    background-color: rgb(19,18, 18);
+    color: white;
+    transition: 0.3s;
+}
+
+.nav-button:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
 }
 
 input {

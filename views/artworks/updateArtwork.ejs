@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Update Artist</title>
     <link rel="stylesheet" href="/style.css">
   </head>
 <body>
-    <%- include('../partials/sidebar.ejs') %>
-    <%- include('../partials/search.ejs') %>
-    <div class="content-container">
-        <div class="title-card green">
-            <h2><%= title %></h2>
-        </div>
-        <form action="/artwork/create" method="POST">
-            <label for="artist">Artist: </label>
+  <%- include('../partials/sidebar.ejs') %>
+  <%- include('../partials/search.ejs') %>
+  <div class="content-container">
+    <div class="title-card green">
+        <h2><%= title %></h2>
+    </div>
+    <form action="/category/artworks/update/<%= artwork.id %>" method="POST">
+        <label for="artist">Artist: </label>
             <select name="artist" id="artist" required>
                 <% artists.map((artist, index) => { %>
                     <option value="<%= artist.name %>"><%= artist.name %></option>
@@ -21,7 +21,7 @@
             </select>
 
             <label for="title">Title: </label>
-            <input type="text" name="title" id="title" required>
+            <input type="text" name="title" value="<%= artwork.title %>" required>
 
             <label for="medium">Medium: </label>
             <select name="medium" id="medium" required>
@@ -38,7 +38,7 @@
             </select>
 
             <label for="year">Year: </label>
-            <input type="number" name="year" id="year" required>
+            <input type="number" name="year" value="<%= artwork.year %>" required>
 
             <label for="Style">Style: </label>
             <select name="style" id="style" required>
@@ -48,12 +48,12 @@
             </select>
 
             <label for="img_url">Image Url: </label>
-            <input type="text" name="img_url" id="img_url" required>
+            <input type="text" name="img_url" value="<%= artwork.img_url %>">
 
-            <button type="submit">Submit</button>
-          </form>
+            <button type="submit">Update Artwork</button>
+      </form>
+  </div>
 
-      </div>
 
 </body>
 </html>

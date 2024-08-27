@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/cardsStyle.css">
     <title>Index</title>
 </head>
 <body>
@@ -14,28 +15,66 @@
         <div class="content-container">
             <h2>Dashboard</h2>
             <div class="content dashboard">
-                <div class="card dashboard pink">
-                    <p>10 Artists</p>
-                    <img src="/images/account.svg">
-                </div>
-                <div class="card dashboard green">
-                    <p>50 Artworks</p>
-                    <img src="/images/artboard.svg">
-                </div>
-                <div class="card dashboard blue">
-                    <p>15 Art Styles</p>
-                    <img src="/images/palette.svg">
-                </div>
-                <div class="card dashboard purple">
-                    <p>12 Mediums</p>
-                    <img src="/images/brush.svg">
-                </div>
-                <div class="card dashboard orange">
-                    <p>10 Locations</p>
-                    <img src="/images/city.svg">
-                </div>
+                <a href="/category/artists">
+                    <div class="card dashboard pink">
+                        <p>10 Artists</p>
+                        <img src="/images/account.svg">
+                    </div>
+
+                </a>
+
+                <a href="/category/artworks">
+                    <div class="card dashboard green">
+                        <p>50 Artworks</p>
+                        <img src="/images/artboard.svg">
+                    </div>
+                </a>
+
+                <a href="/category/styles">
+                    <div class="card dashboard blue">
+                        <p>15 Art Styles</p>
+                        <img src="/images/palette.svg">
+                    </div>
+                </a>
+
+                <a href="/category/mediums">
+                    <div class="card dashboard purple">
+                        <p>12 Mediums</p>
+                        <img src="/images/brush.svg">
+                    </div>
+
+                </a>
+
+                <a href="/category/locations">
+                    <div class="card dashboard orange">
+                        <p>10 Locations</p>
+                        <img src="/images/city.svg">
+                    </div>
+                </a>
+
             </div>
-            <h2>Featured Artists</h2>
+            <h2>Featured <%= title %></h2>
+            <div class="artists-container">
+                <% artists.map((artist, index) => { %>
+
+                        <div class="artist-card">
+                            <div class="bottom">
+                                <a href="/category/artists/<%= artist.id %>">
+                                    <img class="proflie-pic" src="<%=artist.img_url%>">
+                                </a>
+                              <div class="bottom-info">
+                                <p><%= artist.name %></p>
+
+                              </div>
+
+
+                            </div>
+                          </div>
+
+
+                  <% }) %>
+            </div>
+
         </div> <!-- Missing > added here -->
 
     </body>

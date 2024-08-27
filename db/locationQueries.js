@@ -29,6 +29,15 @@ async function deleteLocation(id) {
 
 }
 
+async function deleteLocationInOtherTables(location) {
+    const query = `
+    DELETE FROM artworks
+    WHERE location = $1;
+    `;
+
+    await pool.query(query, [location]);
+}
+
 async function getArtworksOnLocation(location) {
     const { rows } = await pool.query("SELECT * FROM artworks WHERE location = $1", [location]);
     return rows;
@@ -39,6 +48,7 @@ module.exports = {
   getAllLocations,
   getLocation,
   insertNewLocation,
-  getArtworksOnLocation
+  getArtworksOnLocation,
+  deleteLocationInOtherTables
 
 };

@@ -29,6 +29,15 @@ async function deleteMedium(id) {
 
 }
 
+async function deleteMediumInOtherTables(material) {
+  const query = `
+  DELETE FROM artworks
+  WHERE medium = $1;
+  `;
+
+  await pool.query(query, [material]);
+}
+
 async function getArtworksOnMedium(material) {
     const { rows } = await pool.query("SELECT * FROM artworks WHERE medium = $1", [material]);
     return rows;
@@ -39,6 +48,7 @@ module.exports = {
   getAllMediums,
   getMedium,
   insertNewMedium,
-  getArtworksOnMedium
+  getArtworksOnMedium,
+  deleteMediumInOtherTables
 
 };

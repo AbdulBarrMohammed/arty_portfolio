@@ -15,15 +15,18 @@ async function createStylePost(req, res) {
 }
 
 async function createStyleGet(req, res) {
-
-    //const artists = await artistdb.getAllLocations();
-    //res.render("artworks/createArtwork", {title: 'Add New Artwork', artists: artists})
+    res.render("styles/createStyle", {title: 'Add New Style'})
 
 }
 
 async function styleDeletePost(req, res) {
 
-    db.deleteStyle(req.params.id);
+    const id = req.params.id;
+    const style = await db.getStyle(id);
+    const artStyle = style.art_style;
+    db.deleteStyleInOtherTables(artStyle)
+
+    db.deleteStyle(id);
     res.redirect("/")
 }
 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+<body>
+    <%- include('../partials/sidebar.ejs') %>
+    <%- include('../partials/search.ejs') %>
+    <div class="content-container">
+        <div class="title-card blue">
+            <h2><%= title %></h2>
+        </div>
+        <form action="/style/create" method="POST">
+            <label for="artStyle">Style: </label>
+            <input type="text" name="artStyle" id="artStyle" required>
+
+            <button type="submit">Submit</button>
+          </form>
+
+      </div>
+
+</body>
+</html>

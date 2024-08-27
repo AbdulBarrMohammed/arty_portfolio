@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+<body>
+    <%- include('../partials/sidebar.ejs') %>
+    <%- include('../partials/search.ejs') %>
+    <div class="content-container">
+        <div class="title-card orange">
+            <h2><%= title %></h2>
+        </div>
+        <form action="/location/create" method="POST">
+            <label for="city">Location: </label>
+            <input type="text" name="city" id="city" required>
+
+            <button type="submit">Submit</button>
+          </form>
+
+      </div>
+
+</body>
+</html>

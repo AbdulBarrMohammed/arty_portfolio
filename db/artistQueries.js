@@ -41,8 +41,10 @@ async function updateArtist(id, {name, date_of_birth, date_of_death, img_url}) {
 }
 
 async function getArtworkByName(name) {
-  const result = await pool.query("SELECT * FROM artworks WHERE artist = $1", [name]);
-  return result.rows[0] ;
+  const { rows } = await pool.query("SELECT * FROM artworks WHERE artist = $1", [name]);
+  //return result.rows[0] ;
+  console.log(rows)
+  return rows;
 }
 module.exports = {
   updateArtist,

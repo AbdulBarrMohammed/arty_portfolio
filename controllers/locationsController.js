@@ -16,14 +16,20 @@ async function createLocationPost(req, res) {
 
 async function createLocationGet(req, res) {
 
-    //const artists = await artistdb.getAllLocations();
-    //res.render("artworks/createArtwork", {title: 'Add New Artwork', artists: artists})
+    res.render("locations/createLocation", {title: 'Add New Location'})
 
 }
 
 async function locationDeletePost(req, res) {
 
-    db.deleteLocation(req.params.id);
+    const id = req.params.id;
+    const location = await db.getLocation(id);
+
+    const locationCity = location.city;
+    db.deleteLocationInOtherTables(locationCity)
+
+    db.deleteLocation(id);
+
     res.redirect("/")
 }
 
@@ -34,12 +40,6 @@ async function getLocation(req, res) {
     const location = await db.getLocation(id);
     const city = location.city
     const artworks = await db.getArtworksOnLocation(city);
-
-
-
-    console.log('artworks below')
-    console.log(artworks)
-
 
     res.render("locations/selectedLocation", {title: "Artworks", location: location, artworks: artworks});
 }

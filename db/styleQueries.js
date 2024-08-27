@@ -29,6 +29,15 @@ async function deleteStyle(id) {
 
 }
 
+async function deleteStyleInOtherTables(style) {
+  const query = `
+  DELETE FROM artworks
+  WHERE style = $1;
+  `;
+
+  await pool.query(query, [style]);
+}
+
 async function getArtworksOnStyle(style) {
     const { rows } = await pool.query("SELECT * FROM artworks WHERE style = $1", [style]);
     return rows;
@@ -39,6 +48,7 @@ module.exports = {
   getAllStyles,
   getStyle,
   insertNewStyle,
-  getArtworksOnStyle
+  getArtworksOnStyle,
+  deleteStyleInOtherTables
 
 };

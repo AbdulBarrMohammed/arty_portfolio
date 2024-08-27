@@ -74,9 +74,9 @@ async function getArtist(req, res) {
     const deathDate = formatDate(artist.date_of_death);
     const name = artist.name;
     const img_url = artist.img_url
-    const artwork = await db.getArtworkByName(name);
+    const artworks = await db.getArtworkByName(name);
 
-    res.render("artists/selectedArtist", {title: "Artists", name: name, birthDate: birthDate, deathDate: deathDate, img_url: img_url, artwork: artwork});
+    res.render("artists/selectedArtist", {title: "Artists", name: name, birthDate: birthDate, deathDate: deathDate, img_url: img_url, artworks: artworks});
 }
 module.exports =  {
     getAllArtists,

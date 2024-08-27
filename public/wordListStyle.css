@@ -1,0 +1,40 @@
+.words-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+}
+
+.word-card {
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+    padding: 10px;
+}
+
+
+.word-card a {
+    text-decoration: none;
+    list-style: none;
+    transition: 0.3s;
+    color: white;
+}
+
+.word-card:hover {
+
+    background-color: white;
+    cursor: pointer;
+}
+
+.word-card:hover a {
+    color: black; /* Color when hovering over the word-card */
+}
+
+form button {
+    background-color: transparent;
+    border: none;
+}
+
+.delete-container img {
+    height: 30px;
+}
